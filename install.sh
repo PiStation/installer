@@ -12,11 +12,12 @@ mkdir /var/pistation >> /tmp/pistation-install.log 2>&1
 chown pi /var/pistation >> /tmp/pistation-install.log 2>&1
 
 printf "   ${GREEN}Setting locale...${NC}\r\n"
-locale-gen --purge en en_US en_US.UTF-8 >> /tmp/pistation-install.log 2>&1
-echo -e 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' > /etc/default/locale
-export LANGUAGE="en_US"
-export LANG="en_US"
-export LC_ALL="en_US"
+echo "Europe/Amsterdam" > /etc/timezone && \
+    dpkg-reconfigure -f noninteractive tzdata && \
+    sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    echo 'LANG="en_US.UTF-8"'>/etc/default/locale && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    update-locale LANG=en_US.UTF-8 >> /tmp/pistation-install.log 2>&1
 
 printf "   ${GREEN}Updating packages (this might take a while)...${NC}\r\n"
 apt-get update >> /tmp/pistation-install.log 2>&1

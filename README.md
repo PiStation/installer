@@ -10,5 +10,5 @@ Pistation Installer
 
 ### How to install:
 - Install Raspbian (We've used Rapsian Jessie Lite - read more on how to do a clean install on your Pi on this page: https://www.raspberrypi.org/downloads/raspbian/)
-- Once in the main terminal of the RPI, run the following script: ``sudo sh -c 'curl -s https://raw.githubusercontent.com/PiStation/installer/master/install.sh|sh'``
+- Once in the main terminal of the RPI, run the following script: ``curl -s https://raw.githubusercontent.com/PiStation/installer/master/install.sh|sh``
 - This downloads the script and executes it. You might want to manually do a double check on the installation script - just to be sure.

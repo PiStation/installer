@@ -33,13 +33,9 @@ sudo -i -u pi git clone https://github.com/PiStation/pistation-api.git /var/pist
 sudo -i -u pi git clone https://github.com/PiStation/pistation-client.git /var/pistation/pistation-client >> /tmp/pistation-install.log 2>&1
 
 printf "   ${GREEN}Installing dependencies...${NC}\r\n"
-cd /var/pistation/pistation-api
-sudo -i -u pi npm install >> /tmp/pistation-install.log 2>&1
-sudo -i -u pi typings install >> /tmp/pistation-install.log 2>&1
 
-cd /var/pistation/pistation-client
-sudo -i -u pi npm install >> /tmp/pistation-install.log 2>&1
-sudo -i -u pi typings install >> /tmp/pistation-install.log 2>&1
+sudo -H -u pi bash -c 'cd /var/pistation/pistation-api; npm install; typings install'  >> /tmp/pistation-install.log 2>&1
+sudo -H -u pi bash -c 'cd /var/pistation/pistation-client; npm install; typings install'  >> /tmp/pistation-install.log 2>&1
 
 printf "   ${GREEN}Installing WiringPi...${NC}\r\n"
 git clone git://git.drogon.net/wiringPi /var/wiringPi >> /tmp/pistation-install.log 2>&1

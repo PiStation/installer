@@ -12,8 +12,8 @@ mkdir /var/pistation >> /tmp/pistation-install.log 2>&1
 chown pi /var/pistation >> /tmp/pistation-install.log 2>&1
 
 printf "   ${GREEN}Setting locale...${NC}\r\n"
-locale-gen en en_US en_US.UTF-8 >> /tmp/pistation-install.log 2>&1
-dpkg-reconfigure locales >> /tmp/pistation-install.log 2>&1
+locale-gen --purge en en_US en_US.UTF-8 >> /tmp/pistation-install.log 2>&1
+echo -e 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' > /etc/default/locale
 export LANGUAGE="en_US"
 export LANG="en_US"
 export LC_ALL="en_US"

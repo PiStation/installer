@@ -11,7 +11,8 @@ mkdir /var/pistation >> /tmp/pistation-install.log 2>&1
 chown pi /var/pistation >> /tmp/pistation-install.log 2>&1
 
 printf "   ${GREEN}Updating packages (this might take a while)...${NC}\r\n"
-apt-get update && sudo apt-get upgrade -y >> /tmp/pistation-install.log 2>&1
+apt-get update  >> /tmp/pistation-install.log 2>&1
+apt-get upgrade -y >> /tmp/pistation-install.log 2>&1
 
 printf "   ${GREEN}Installing required packages (this might take a while.. as well)...${NC}\r\n"
 apt-get install git nodejs npm node-semver -y >> /tmp/pistation-install.log 2>&1

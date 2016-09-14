@@ -23,7 +23,7 @@ apt-get update >> /tmp/pistation-install.log 2>&1
 apt-get upgrade -y >> /tmp/pistation-install.log 2>&1
 
 printf "   ${GREEN}Installing required packages (this might take a while.. as well)...${NC}\r\n"
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - >> /tmp/pistation-install.log 2>&1
 apt-get install nodejs git htop g++ -y >> /tmp/pistation-install.log 2>&1
 npm install typings ts-node typescript --global >> /tmp/pistation-install.log 2>&1
 

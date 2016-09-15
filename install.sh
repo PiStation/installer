@@ -11,14 +11,12 @@ printf "   ${GREEN}Creating directories...${NC}\r\n"
 mkdir /var/pistation >> /tmp/pistation-install.log 2>&1
 chown pi /var/pistation >> /tmp/pistation-install.log 2>&1
 
-printf "   ${GREEN}Setting locale...${NC}\r\n"
+printf "   ${GREEN}Setting locale and timezone...${NC}\r\n"
 echo "Europe/Amsterdam" > /etc/timezone && \
     dpkg-reconfigure -f noninteractive tzdata && \
     sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
-    echo 'LANG="en_US.UTF-8"'>/etc/default/locale && \
     locale-gen en_US.UTF-8 && \
-    dpkg-reconfigure --frontend=noninteractive locales && \
-    update-locale LANG=en_US.UTF-8 >> /tmp/pistation-install.log 2>&1
+    update-locale en_US.UTF-8 >> /tmp/pistation-install.log 2>&1
 
 printf "   ${GREEN}Updating packages (this might take a while)...${NC}\r\n"
 apt-get update >> /tmp/pistation-install.log 2>&1

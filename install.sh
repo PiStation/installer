@@ -36,8 +36,4 @@ printf "   ${GREEN}Installing dependencies...${NC}\r\n"
 sudo -H -u pi bash -c 'cd /var/pistation/pistation-api; npm install; typings install'  >> /tmp/pistation-install.log 2>&1
 sudo -H -u pi bash -c 'cd /var/pistation/pistation-client; npm install; typings install'  >> /tmp/pistation-install.log 2>&1
 
-printf "   ${GREEN}Installing WiringPi...${NC}\r\n"
-git clone git://git.drogon.net/wiringPi /var/wiringPi >> /tmp/pistation-install.log 2>&1
-cd /var/wiringPi >> /tmp/pistation-install.log 2>&1
-git pull origin >> /tmp/pistation-install.log 2>&1
-./build >> /tmp/pistation-install.log 2>&1
+printf "   ${GREEN}Good to go! To do: Install connectors and modules, automatically start API and client.${NC}\r\n"
